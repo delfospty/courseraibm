@@ -15,3 +15,9 @@ function checkCountValue() {
     alert("Count is multiple of 10");
   } 
 }
+
+function resetCount() {
+  count = 0;
+  displayCount();
+  alert("Count has been reset to zero");
+}
