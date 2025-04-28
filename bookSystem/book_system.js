@@ -12,6 +12,15 @@ function editbook(index) {
   }
 
 
+function deletebook(index) {
+    if (confirm("Are you sure you want to delete this book?")) {
+        books.splice(index, 1);
+        showbooks();
+    }
+}  
+
+
+
 
 function addBook(){
     const bookName = document.getElementById("bookName").value;
@@ -36,13 +45,16 @@ function addBook(){
 
 
 
+
 function showbooks() {
     const booksDiv = books.map((book, index) => `<h1>book Number: ${index + 1}</h1>
         <p><strong>Book Name: </strong> ${book.name}</p>
         <p><strong>Author Name:</strong> ${book.author}</p>
         <p><strong>Book Description:</strong> ${book.description}</p>
         <p><strong>No. of Pages:</strong> ${book.pages} page(s)</p>
-        <button onclick="editbook(${index})">Edit</button>`
+        <button onclick="editbook(${index})">Edit</button>
+        <button onclick="deletebook(${index})">Delete</button>`
+
     );
     document.getElementById('books').innerHTML = booksDiv.join();
 }
